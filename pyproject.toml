@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "massgitleaks"
+dynamic = ["version"]
+description = "Automate gitleaks scanning across multiple repositories"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    {name = "Vizz", email = "vizzdoom@gmail.com"}
+]
+keywords = ["python", "git", "cli", "security", "devops", "automation", "tools", "scanner", "secret", "secrets", "hacking", "ci-cd", "secops", "cybersecurity", "pentesting", "security-tools", "devsecops", "gitleaks", "secrets-detection"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Topic :: Security",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "colorama>=0.4.6",
+    "rich-argparse>=1.7.1"
+]
+
+license = "GPL-3.0"
+license-files = [
+    "LICENSE",
+]
+
+[project.urls]
+Homepage = "https://github.com/vizzdoom/massgitleaks"
+"Bug Reports" = "https://github.com/vizzdoom/massgitleaks/issues"
+"Source Code" = "https://github.com/vizzdoom/massgitleaks"
+
+[project.scripts]
+massgitleaks = "massgitleaks:main"
+
+[tool.setuptools]
+py-modules = ["massgitleaks"]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+version = {attr = "massgitleaks.VERSION"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["massgitleaks*"]
